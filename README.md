@@ -7,7 +7,6 @@
 [![Pygame](https://img.shields.io/badge/Pygame-Sound%20%26%20GUI-brightgreen?logo=python)](https://pygame.org)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![Open Source](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red)](https://github.com/ivengexnce/TicTacToe-Python)
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?logo=vercel)](https://tic-tac-toe-pythongame.vercel.app)
 
 ---
 
