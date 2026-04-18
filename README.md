@@ -1,4 +1,4 @@
-# 🎮 Tic Tac Toe — Python GUI with AI
+#  Tic Tac Toe — Python GUI with AI
 
 > **Play against an unbeatable AI or a friend — right from your desktop.**
 > Built with Python, Tkinter, and Pygame. No browser, no install headaches.
@@ -14,19 +14,19 @@
 
 | Feature | Details |
 |---|---|
-| 🧠 AI Opponent | Minimax algorithm — genuinely unbeatable on Hard |
-| 🎯 Difficulty Levels | Easy (random) · Moderate (semi-smart) · Hard (Minimax) |
-| 👥 Two Modes | Player vs Player · Player vs AI |
-| 🔊 Sound Effects | Click · Win · Draw · Hover · Intro |
-| 👤 Custom Names | Set your own player names before the game |
-| 🖱️ Hover Effects | Animated board interactions |
-| 🏆 Win Animation | Highlighted winning sequence |
-| 🔇 Sound Toggle | Mute/unmute anytime during gameplay |
-| 💻 GUI | Clean Tkinter window — no terminal needed |
+|  AI Opponent | Minimax algorithm — genuinely unbeatable on Hard |
+|  Difficulty Levels | Easy (random) · Moderate (semi-smart) · Hard (Minimax) |
+|  Two Modes | Player vs Player · Player vs AI |
+|  Sound Effects | Click · Win · Draw · Hover · Intro |
+|  Custom Names | Set your own player names before the game |
+|  Hover Effects | Animated board interactions |
+|  Win Animation | Highlighted winning sequence |
+|  Sound Toggle | Mute/unmute anytime during gameplay |
+|  GUI | Clean Tkinter window — no terminal needed |
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Python 3.x
@@ -50,7 +50,7 @@ python TicTacToe-GUI-Python.py
 
 ---
 
-## 🧠 How the AI Works
+##  How the AI Works
 
 The Hard difficulty uses the **Minimax algorithm** — a classic decision-tree AI that explores every possible game state and always plays the optimal move. It is mathematically unbeatable.
 
@@ -62,7 +62,7 @@ This makes it a great project to study AI game theory and recursive algorithms.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 TicTacToe-Python/
@@ -75,6 +75,17 @@ TicTacToe-Python/
 
 ---
 
+##  Screenshot
+
+![image](https://github.com/user-attachments/assets/83df5a01-6844-4373-90c1-22b853ce1bfd)
+![image](https://github.com/user-attachments/assets/abe30471-b3e2-4562-ac66-589921aad0ff)
+![image](https://github.com/user-attachments/assets/a6c7704f-879d-4b49-a4a0-07812378ddba)
+![image](https://github.com/user-attachments/assets/d6354b12-208a-4de0-b35c-aaf295566a0a)
+![Screenshot 2025-05-12 190327](https://github.com/user-attachments/assets/a424eea3-5854-4a94-91f1-302417466368)
+![image](https://github.com/user-attachments/assets/508e02c1-3956-41b0-9b26-c68b14f69e8c)
+
+---
+
 ## 🛠️ Tech Stack
 
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
@@ -83,7 +94,7 @@ TicTacToe-Python/
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Pull requests are welcome! Great first-issue project for beginners.
 
@@ -101,17 +112,16 @@ MIT License — free to use, modify, and share.
 
 ---
 
-## 📞 Connect — Meet Maru
+##  Connect — Meet Maru
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-meetmaru149-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/meetmaru149)
 [![GitHub](https://img.shields.io/badge/GitHub-ivengexnce-181717?logo=github&logoColor=white)](https://github.com/ivengexnce)
 [![Instagram](https://img.shields.io/badge/Instagram-ivengexnce-E4405F?logo=instagram&logoColor=white)](https://www.instagram.com/ivengexnce)
-[![Twitter](https://img.shields.io/badge/Twitter-ivengexnce-1DA1F2?logo=twitter&logoColor=white)](https://twitter.com/ivengexnce)
 [![Email](https://img.shields.io/badge/Email-meetmaru149%40gmail.com-EA4335?logo=gmail&logoColor=white)](mailto:meetmaru149@gmail.com)
 
 ---
 
-## ⭐ Support
+##  Support
 
 If this project helped you learn Minimax, Python GUI, or game development — a star means a lot!
 
