@@ -1,4 +1,4 @@
-## 🎮 Tic Tac Toe Game (Python GUI)
+##  Tic Tac Toe Game (Python GUI)
 
   A powerful and interactive Tic Tac Toe game built with Python's Tkinter for GUI and Pygame for immersive sound effects. Supports Player vs Player and Player vs AI gameplay with smart AI using the Minimax algorithm.
 
