@@ -11,12 +11,6 @@
 
 ---
 
-## 🌐 Live Demo
-
-👉 **[Play it here → tic-tac-toe-pythongame.vercel.app](https://tic-tac-toe-pythongame.vercel.app)**
-
----
-
 ## ✨ Features
 
 | Feature | Details |
