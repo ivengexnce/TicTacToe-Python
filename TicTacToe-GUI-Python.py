@@ -6,8 +6,12 @@ import random
 import pygame
 import time
 
-# Initialize pygame mixer
-pygame.mixer.init()
+# Initialize pygame mixer safely
+try:
+    pygame.mixer.init()
+except (pygame.error, Exception):
+    # If mixer fails, we can't play sounds, but we should let the game start
+    pass
 
 class TicTacToe:
     def __init__(self):
@@ -27,6 +31,7 @@ class TicTacToe:
         self.buttons = []
         self.vs_ai = False
         self.player_names = {}
+        self.ai_pending = False # Track if AI is thinking to prevent human input
 
         # Load sounds relative to the script location
         self.load_sounds()
@@ -69,24 +74,36 @@ class TicTacToe:
 
     def play_sound(self, key):
         if self.sound_on and self.sounds.get(key):
-            self.sounds[key].play()
+            try:
+                self.sounds[key].play()
+            except pygame.error:
+                pass
 
     def setup_game_options(self):
         self.window.configure(bg=self.theme['bg'])
 
-        choice = simpledialog.askstring("Game Mode", "Choose mode: \n 1) 1v1 \n 2) vs AI").lower()
+        # Handle potential None from askstring if user cancels
+        raw_choice = simpledialog.askstring("Game Mode", "Choose mode: \n 1) 1v1 \n 2) vs AI")
+        if raw_choice is None:
+            sys.exit() # User cancelled, exit app
+
+        choice = raw_choice.lower()
         if choice == '1':
             self.play_sound('click')
             self.vs_ai = False
             self.player_names["X"] = simpledialog.askstring("Player 1 Name", "Enter Player 1 name (X):") or "Player 1"
             self.player_names["O"] = simpledialog.askstring("Player 2 Name", "Enter Player 2 name (O):") or "Player 2"
-        else:
+        elif choice == '2':
             self.vs_ai = True
             self.player_names["X"] = simpledialog.askstring("Player Name", "Enter your name (X):") or "Player 1"
             self.play_sound('click')
             self.player_names["O"] = "Computer"
 
-            diff = simpledialog.askstring("AI Difficulty", "Choose difficulty: \n 1.Easy \n 2.Moderate \n 3.Hard").lower()
+            raw_diff = simpledialog.askstring("AI Difficulty", "Choose difficulty: \n 1.Easy \n 2.Moderate \n 3.Hard")
+            if raw_diff is None:
+                sys.exit() # User cancelled, exit app
+
+            diff = raw_diff.lower()
             if diff == '1':
                 self.play_sound('click')
                 self.ai_level = 'easy'
@@ -101,6 +118,11 @@ class TicTacToe:
                 messagebox.showerror("Error", "Invalid input. Enter valid input.")
                 self.window.destroy()
                 sys.exit()
+        else:
+            self.play_sound('error')
+            messagebox.showerror("Error", "Invalid input. Please choose 1 or 2.")
+            self.window.destroy()
+            sys.exit()
 
     def create_buttons(self):
         for i in range(9):
@@ -129,13 +151,23 @@ class TicTacToe:
         self.sound_on = not self.sound_on
         if self.sound_on:
             self.sound_button.config(text="🔊")
-            pygame.mixer.unpause()
+            try:
+                pygame.mixer.unpause()
+            except pygame.error:
+                pass
             self.play_sound('click')
         else:
             self.sound_button.config(text="🔇")
-            pygame.mixer.pause()
+            try:
+                pygame.mixer.pause()
+            except pygame.error:
+                pass
 
     def make_move(self, index):
+        # Prevent human move if AI is thinking
+        if self.ai_pending:
+            return
+
         if self.board[index] == "":
             self.board[index] = self.current_player
             self.buttons[index].config(text=self.current_player)
@@ -153,6 +185,7 @@ class TicTacToe:
             else:
                 self.current_player = "O" if self.current_player == "X" else "X"
                 if self.vs_ai and self.current_player == "O":
+                    self.ai_pending = True # Block human input
                     self.window.after(500, self.ai_move)
 
     def ai_move(self):
@@ -162,6 +195,8 @@ class TicTacToe:
             move = self.moderate_ai_move()
         else:
             move = self.minimax(self.board, "O")[1]
+
+        self.ai_pending = False # Allow human input again
         self.make_move(move)
 
     def moderate_ai_move(self):
@@ -234,7 +269,10 @@ class TicTacToe:
             self.play_sound('closing')
             self.window.after(1000, lambda: self.sounds['closing'].stop() if self.sounds['closing'] else None)
             self.window.destroy()
-            pygame.mixer.quit()
+            try:
+                pygame.mixer.quit()
+            except:
+                pass
             sys.exit()
 
 if __name__ == "__main__":
